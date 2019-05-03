@@ -1,5 +1,6 @@
 import argparse
 import sys
+import time
 
 
 def compute_temps(temperature, direction):
@@ -10,7 +11,17 @@ def compute_temps(temperature, direction):
         value = (9/5 * temperature) + 32
         out = "%d Celsius is %d Fahrenheit" % (temperature, value)
 
-    print(out)
+    t = time.localtime()
+    tz = time.strftime("Time zone is %Z", t)
+    current_time = time.strftime("%I:%M:%S %p %z", t)
+    print('\n'+tz)
+    print('Current time: '+current_time)
+
+    t = time.gmtime()
+    current_time = time.strftime("%H:%M:%SZ", t)
+    print('Current time GMT: '+current_time)
+
+    print('\n'+out)
 
 
 def main(argv):
