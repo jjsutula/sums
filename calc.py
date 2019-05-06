@@ -8,8 +8,8 @@ def calculator():
     while proceed:
         user_in = input("Enter an equation: ")
         if user_in and not user_in.startswith('q'):
-            parts = re.findall('[+-/*//()]|\d+', user_in)
-            # print('Parts: '+str(parts))
+            parts = re.findall('[+-/*()]|\d+', user_in)
+            print('Parts: '+str(parts))
 
             left = int(parts[0])
             right = int(parts[2])
